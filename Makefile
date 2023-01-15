@@ -37,14 +37,15 @@ else
 endif
 
 .DEFAULT_GOAL := help
-.PHONY: greet blog sum help
-project := greet blog sum
+.PHONY: greet blog sum primes help
+project := greet blog sum primes
 
 all: $(project) ## Generate Pbs and build
 
 greet: $@ ## Generate Pbs and build for greet
 sum: $@ ## Generate Pbs and build for sum
 blog: $@ ## Generate Pbs and build for blog
+primes: $@ ## Generate Pbs and build for primes
 
 $(project):
 	@${CHECK_DIR_CMD}

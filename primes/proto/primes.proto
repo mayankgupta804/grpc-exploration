@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package primes;
+
+option go_package="grpc-exploration/primes/proto";
+
+message PrimesRequest {
+    int64 num = 1;
+}
+
+message PrimesResponse {
+    int64 num = 1;
+}
+
+service PrimesService {
+    rpc Primes(PrimesRequest) returns (stream PrimesResponse);
+}
