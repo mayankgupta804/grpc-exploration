@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package avg;
+
+option go_package = "grpc-exploration/avg/proto";
+
+message AvgRequest {
+    int64 num = 1;
+}
+
+message AvgResponse {
+    double num = 1;
+}
+
+service AvgService {
+    rpc Average(stream AvgRequest) returns (AvgResponse);
+}
