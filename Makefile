@@ -37,8 +37,8 @@ else
 endif
 
 .DEFAULT_GOAL := help
-.PHONY: greet blog sum primes avg help
-project := greet blog sum primes avg
+.PHONY: greet blog sum primes avg max help
+project := greet blog sum primes max avg
 
 all: $(project) ## Generate Pbs and build
 
@@ -47,6 +47,7 @@ sum: $@ ## Generate Pbs and build for sum
 blog: $@ ## Generate Pbs and build for blog
 primes: $@ ## Generate Pbs and build for primes
 avg: $@ ## Generate Pbs and build for avg
+max: $@ ## Generate Pbs and build for max
 
 $(project):
 	@${CHECK_DIR_CMD}
@@ -74,10 +75,14 @@ clean_blog: ## Clean generated files for blog
 	${RM_F_CMD} blog/${PROTO_DIR}/*.pb.go
 
 clean_avg: ## Clean generated files for avg
-	${RM_F_CMD} blog/${PROTO_DIR}/*.pb.go
+	${RM_F_CMD} avg/${PROTO_DIR}/*.pb.go
 
 clean_primes: ## Clean generated files for primes
-	${RM_F_CMD} blog/${PROTO_DIR}/*.pb.go
+	${RM_F_CMD} primes/${PROTO_DIR}/*.pb.go
+
+clean_max: ## Clean generated files for max
+	${RM_F_CMD} max/${PROTO_DIR}/*.pb.go
+
 
 rebuild: clean all ## Rebuild the whole project
 
