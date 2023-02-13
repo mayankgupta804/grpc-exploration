@@ -19,5 +19,8 @@ func main() {
 	defer conn.Close()
 	c := pb.NewBlogServiceClient(conn)
 
-	log.Printf("Blog ID of the newly generated blog: %v\n", createBlog(c))
+	id := createBlog(c)
+	readBlog(c, id) // valid
+
+	readBlog(c, "blablabla")
 }
